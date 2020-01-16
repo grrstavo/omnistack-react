@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+import './styles.css';
+
 function DevForm({ onSubmit }) {
     const [github_username, setGithubUsername] = useState('');
     const [techs, setTechs] = useState('');
@@ -9,16 +11,16 @@ function DevForm({ onSubmit }) {
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(
             (position) => {
-            const {latitude, longitude} = position.coords;
+                const {latitude, longitude} = position.coords;
 
-            setLatitude(latitude);
-            setLongitude(longitude);
+                setLatitude(latitude);
+                setLongitude(longitude);
             },
             (err) => {
-            console.log(err);
+                console.log(err);
             },
             {
-            timeout: 30000
+                timeout: 30000
             }
         );
     }, []);
